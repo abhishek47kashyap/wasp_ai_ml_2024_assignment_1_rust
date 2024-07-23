@@ -1,0 +1,52 @@
+pub struct EntityPosition
+{
+    x: f64,
+    y: f64
+}
+
+pub struct Entity
+{
+    id: i32,
+    size: f64,  // similar to radius in Python code
+    perception_radius: f64,
+    current_position: EntityPosition,
+
+    is_root: bool
+}
+
+impl Entity
+{
+    pub fn new(id: i32, size: f64, perception_radius: f64, current_position: EntityPosition) -> Self
+    {
+        // https://doc.rust-lang.org/nomicon/constructors.html
+
+        Entity
+        {
+            id,
+            size,
+            perception_radius,
+            current_position,
+            is_root: false
+        }
+    }
+
+    pub fn mark_as_root(mut self) -> Self
+    {
+        self.is_root = true;
+        self
+    }
+
+    pub fn mark_as_not_root(mut self) -> Self
+    {
+        self.is_root = false;
+        self
+    }
+}
+
+impl EntityPosition
+{
+    pub fn new(x: f64, y: f64) -> Self
+    {
+        EntityPosition{x, y}
+    }
+}
