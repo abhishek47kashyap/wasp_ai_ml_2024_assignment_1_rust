@@ -1,4 +1,4 @@
-use crate::resources::entity;
+use crate::resources::entity::{Entity, EntityPosition, generate_random_position};
 
 pub struct Game
 {
@@ -17,5 +17,14 @@ impl Game
     {
         println!("Starting game!");
         println!("Ending game!");
+    }
+
+    fn create_population(&self) -> Vec<Entity>
+    {
+        let mut population:Vec<Entity> = Vec::new();
+
+        let position = generate_random_position(20.0, 20.0);
+
+        population
     }
 }

@@ -1,3 +1,5 @@
+use rand::Rng;
+
 pub struct EntityPosition
 {
     x: f64,
@@ -49,4 +51,12 @@ impl EntityPosition
     {
         EntityPosition{x, y}
     }
+}
+
+pub fn generate_random_position(map_size_x: f64, map_size_y: f64) -> EntityPosition
+{
+    let mut rng = rand::thread_rng();
+    let x = rng.gen_range(0.0..=map_size_x);
+    let y = rng.gen_range(0.0..=map_size_y);
+    EntityPosition { x, y }
 }
