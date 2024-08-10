@@ -2,8 +2,8 @@ use rand::Rng;
 
 pub struct EntityPosition
 {
-    x: f64,
-    y: f64
+    pub x: f64,
+    pub y: f64
 }
 
 pub struct Entity
@@ -32,16 +32,14 @@ impl Entity
         }
     }
 
-    pub fn mark_as_root(mut self) -> Self
+    pub fn mark_as_root(&mut self)
     {
         self.is_root = true;
-        self
     }
 
-    pub fn mark_as_not_root(mut self) -> Self
+    pub fn mark_as_not_root(&mut self)
     {
         self.is_root = false;
-        self
     }
 }
 
