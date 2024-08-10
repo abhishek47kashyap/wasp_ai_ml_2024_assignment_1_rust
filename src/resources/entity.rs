@@ -10,7 +10,6 @@ pub struct Entity
 {
     id: i32,
     size: f64,  // similar to radius in Python code
-    perception_radius: f64,
     current_position: EntityPosition,
 
     is_root: bool
@@ -18,7 +17,7 @@ pub struct Entity
 
 impl Entity
 {
-    pub fn new(id: i32, size: f64, perception_radius: f64, current_position: EntityPosition) -> Self
+    pub fn new(id: i32, size: f64, current_position: EntityPosition) -> Self
     {
         // https://doc.rust-lang.org/nomicon/constructors.html
 
@@ -26,7 +25,6 @@ impl Entity
         {
             id,
             size,
-            perception_radius,
             current_position,
             is_root: false
         }
