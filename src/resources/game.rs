@@ -2,8 +2,8 @@ use crate::resources::entity::{Entity, EntityPosition, generate_random_position}
 
 pub struct Game
 {
-    num_entities: i32,
-    num_timesteps: i32
+    num_entities: usize,
+    num_timesteps: usize
 }
 
 impl Game
@@ -16,14 +16,25 @@ impl Game
     pub fn run(&self)
     {
         println!("Starting game!");
+        let mut population = self.create_population();
         println!("Ending game!");
     }
 
     fn create_population(&self) -> Vec<Entity>
     {
-        let mut population:Vec<Entity> = Vec::new();
+        let mut population:Vec<Entity> = Vec::with_capacity(self.num_entities);
 
-        let position = generate_random_position(20.0, 20.0);
+        for id in 1..=self.num_entities
+        {
+            population.push(
+                Entity::new(
+                    id as i32,
+                    0.3,
+                    5.0,
+                    generate_random_position(20.0, 20.0)
+                )
+            );
+        }
 
         population
     }
