@@ -33,7 +33,8 @@ pub struct Entity
     size: f64,  // similar to radius in Python code
     current_position: EntityPosition,
 
-    is_root: bool
+    is_root: bool,
+    has_converged: bool
 }
 
 impl Entity
@@ -47,13 +48,24 @@ impl Entity
             id,
             size,
             current_position,
-            is_root: false
+            is_root: false,
+            has_converged: false
         }
     }
 
     pub fn get_id(&self) -> i32
     {
         self.id
+    }
+
+    pub fn has_converged(&self) -> bool
+    {
+        self.has_converged
+    }
+
+    pub fn is_root(&self) -> bool
+    {
+        self.is_root
     }
     
     pub fn mark_as_root(&mut self)
