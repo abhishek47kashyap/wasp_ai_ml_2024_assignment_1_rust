@@ -3,8 +3,21 @@ use rand::Rng;
 #[derive(Clone)]
 pub struct EntityPosition
 {
-    pub x: f64,
-    pub y: f64
+    x: f64,
+    y: f64
+}
+
+impl EntityPosition
+{
+    pub fn get_x(&self) -> f64
+    {
+        self.x
+    }
+
+    pub fn get_y(&self) -> f64
+    {
+        self.y
+    }
 }
 
 #[derive(Clone)]
