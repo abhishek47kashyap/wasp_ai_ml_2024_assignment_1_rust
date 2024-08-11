@@ -1,11 +1,13 @@
 use rand::Rng;
 
+#[derive(Clone)]
 pub struct EntityPosition
 {
     pub x: f64,
     pub y: f64
 }
 
+#[derive(Clone)]
 pub struct Entity
 {
     id: i32,
@@ -30,6 +32,11 @@ impl Entity
         }
     }
 
+    pub fn get_id(&self) -> i32
+    {
+        self.id
+    }
+    
     pub fn mark_as_root(&mut self)
     {
         self.is_root = true;
