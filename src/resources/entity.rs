@@ -18,6 +18,12 @@ impl EntityPosition
     {
         self.y
     }
+
+    pub fn set_position(&mut self, pos: EntityPosition)
+    {
+        self.x = pos.x;
+        self.y = pos.y;
+    }
 }
 
 #[derive(Clone)]
